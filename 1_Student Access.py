@@ -1,7 +1,7 @@
 import streamlit as st
 
 st.set_page_config(
-    page_title="CyberQ AI - Login or Signup",
+    page_title="CyberCloud AI Buddy - Student Access",
     page_icon="🔐",
     layout="centered",
 )
@@ -48,19 +48,17 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# Motivational Message with Image
+# Tabs for Student Access and Sign Up
+tab1, tab2 = st.tabs(["Student Access 🎓", "Sign Up"])  # ✅ Fixed tab creation
 
-
-# Tabs for Login and Signup
-tab1, tab2 = st.tabs(["Login", "Sign Up"])
-
-# Login Tab
+# 🎓 **Student Access (Login) Tab**
 with tab1:
-    st.markdown("<h2>Login to CyberQ AI</h2>", unsafe_allow_html=True)
+    st.markdown("<h2>Student Access to CyberCloud AI Buddy</h2>", unsafe_allow_html=True)
+    
     with st.form("login_form", clear_on_submit=True):
         username = st.text_input("Username", placeholder="Enter your username")
-        password = st.text_input("Password", type="password", placeholder="Enter your password")
-        login_button = st.form_submit_button("Login")
+        password = st.text_input("Password", type="password", placeholder="Enter your password", help="Make sure to use a strong password.")
+        login_button = st.form_submit_button("Access CyberCloud AI")
 
         if login_button:
             if username and password:
@@ -71,9 +69,10 @@ with tab1:
             else:
                 st.error("Please fill in both fields.")
 
-# Signup Tab
+# 📝 **Sign Up Tab (Now Correctly Indented)**
 with tab2:
-    st.markdown("<h2>Create Your Account</h2>", unsafe_allow_html=True)
+    st.markdown("<h2>Create Your CyberCloud AI Buddy Account</h2>", unsafe_allow_html=True)
+
     with st.form("signup_form", clear_on_submit=True):
         email = st.text_input("Email Address", placeholder="Enter your email")
         new_username = st.text_input("Username", placeholder="Choose a username")
